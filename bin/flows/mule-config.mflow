@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mule-configuration xmlns="http://www.mulesoft.com/tooling/messageflow" name="mule-config">
+    <global-unknown description="true" index="1" entity-id="global-unknown#1">
+        <content>&lt;description xmlns=&quot;http://www.mulesoft.org/schema/mule/core&quot;&gt;
+        This is the configuration file that is started up by Mule when the application is deployed.
+        Mule's servlets need a reference to a MuleContext which cannot be provided here. The main
+        Mule config is started through a servlet context listener in the billestore-admin web
+        context.
+    &lt;/description&gt;</content>
+    </global-unknown>
+    <global-element name="Jetty" type="http://www.mulesoft.org/schema/mule/jetty/connector" entity-id="Jetty#1">
+        <properties>
+            <property name="name" value="jettyConnector"/>
+            <property name="configFile"/>
+            <property name="acceptors"/>
+            <property name="useContinuations"/>
+            <property name="resourceBase"/>
+            <property name="auxiliary;index" value="2"/>
+            <property-collection name="@http://www.mulesoft.org/schema/mule/jetty/webapps;0">
+                <property name="port" value="8083"/>
+                <property name="directory" value="${app.home}/webapps"/>
+                <property name="auxiliary;wrapIn" value="3"/>
+                <property name="auxiliary;index" value="3"/>
+            </property-collection>
+        </properties>
+    </global-element>
+</mule-configuration>
